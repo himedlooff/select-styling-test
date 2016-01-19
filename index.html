@@ -4,14 +4,90 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Select styling test</title>
+<style>
+select {
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    -ms-appearance: none;
+    -o-appearance: none;
+    appearance: none;
+    border-radius: 0;
+    border: 0 none transparent;
+    box-shadow: none;
+    background: transparent;
+    font-size: 14px;
+}
+
+select::-ms-expand {
+    display: none;
+}
+
+select:hover,
+select:focus {
+    outline: none;
+}
+
+.select {
+    position: relative;
+    display: inline-block;
+    width: auto;
+}
+
+.selecticon {
+    position: absolute;
+    top: 53%;
+    right: 15px;
+    font-size: 8px;
+    letter-spacing: 2px;
+    color: #bdbdbd;
+    font-family: Arial;
+    -webkit-transform: translateY(-50%) rotate(90deg);
+    -ms-transform: translateY(-50%) rotate(90deg);
+    transform: translateY(-50%) rotate(90deg);
+    pointer-events: none;
+}
+
+.selecticon:before {
+    content: "◄►";
+}
+
+.selectelem {
+    padding: 1.5em 3em 1.5em 1.5em;
+    border: 1px solid #c4c4c4;
+    color: #a0a0a0;
+    background-color: #fff;
+}
+
+.selectelem:hover {
+    border-color: blue;
+    color: blue;
+}
+
+.selectelem:hover + .selecticon {
+    color: blue;
+}
+
+.selectelem:focus {
+    border-color: green;
+    color: green;
+}
+
+.selectelem:focus + .selecticon {
+    color: green;
+}
+</style>
+
 </head>
 <body>
-<select name="test-select" id="test-select">
-	<option value="1">Option 1</option>
-	<option value="2">Option 2</option>
-	<option value="3">Option 3</option>
-	<option value="4">Option 4</option>
-	<option value="5">Option 5</option>
-</select>
+<div class="select">
+	<select name="test-select" id="test-select" class="selectelem">
+		<option value="1">Option 1</option>
+		<option value="2">Option 2</option>
+		<option value="3">Option 3</option>
+		<option value="4">Option 4</option>
+		<option value="5">Option 5</option>
+	</select>
+	<span class="selecticon"></span>
+</div>
 </body>
 </html>
